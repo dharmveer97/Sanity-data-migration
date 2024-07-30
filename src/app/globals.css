@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  --scroll-shadow-size: 40px;
+}
+
+.rdtOpen .rdtPicker {
+  color: black !important;
+}
+.ReactGridGallery_tile-viewport img {
+  object-fit: contain !important;
+}
+
+.picker .rdtPicker {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+}
