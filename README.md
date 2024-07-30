@@ -1,7 +1,6 @@
 # Sanity Sync or Bulk Upload
 
-Using Nextjs and TailwindCSS, includes Graphql Server and  Authorization and blog.
-It’s depended on apollo and graphql and mongoDB for elements and helpers
+This Node.js script enables data synchronization between various databases and the Sanity platform using GraphQL. The project also includes a feature for creating multiple array entries using Formik, allowing users to add new entries with a click of a button. Additionally, it supports image uploading to Sanity, facilitating bulk upload tasks. This script provides a comprehensive solution for efficient data management and synchronization.
 
 ## Stack
 
