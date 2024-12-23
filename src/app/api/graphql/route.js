@@ -1,11 +1,9 @@
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
 import { ApolloServer } from '@apollo/server';
 import { gql } from 'graphql-tag';
-import {
-  updateMultipleItemsStatus,
-  transformSanityDocument,
-} from '../../../utils/helper';
-import client from '../../../utils/sanity';
+import // updateMultipleItemsStatus,
+// transformSanityDocument,
+'../../../utils/helper';
 
 const resolvers = {
   Query: {
@@ -14,9 +12,9 @@ const resolvers = {
       // This query is used in the form when creating orders. Once an order is completed, you can set the item's status to "Not Active."
       // This ensures that sold items will not be visible in the live environment.
 
-      const ids = ['66a8147c58ca7eb40fd34df2'];
+      // const ids = ['66a8147c58ca7eb40fd34df2'];
       try {
-        await updateMultipleItemsStatus(ids, client);
+        // await updateMultipleItemsStatus(ids, client);
       } catch (error) {
         console.log(error);
       }
@@ -40,11 +38,11 @@ const resolvers = {
           // etc
         };
         try {
-          const transaction = client.transaction(); // transaction() method is atomic data method
-          const sanityDoc = await transformSanityDocument(data, client);
-          transaction.createOrReplace(sanityDoc);
-          await transaction.commit();
-          console.log(`Migrated document with SKU: ${sanityDoc?.sku}`);
+          // const transaction = client.transaction(); // transaction() method is atomic data method
+          // const sanityDoc = await transformSanityDocument(data, client);
+          // transaction.createOrReplace(sanityDoc);
+          // await transaction.commit();
+          // console.log(`Migrated document with SKU: ${sanityDoc?.sku}`);
         } catch (error) {
           console.log(error, 'error');
         }
@@ -59,19 +57,19 @@ const resolvers = {
         //   createdAt: -1,
         // });
         // TODO:pass or fetch your real data in frm of ARRAY
-        const inventory = [
-          // your data objects
-        ];
+        // const inventory = [
+        //   // your data objects
+        // ];
 
-        const transaction = client.transaction();
-        const promises = inventory.map(async (mongoDoc) => {
-          const sanityDoc = await transformSanityDocument(mongoDoc, client);
-          transaction.createOrReplace(sanityDoc);
-          console.log(`Migrated document with SKU: ${mongoDoc.sku}`);
-        });
+        // const transaction = client.transaction();
+        // const promises = inventory.map(async (mongoDoc) => {
+        //   const sanityDoc = await transformSanityDocument(mongoDoc, client);
+        //   transaction.createOrReplace(sanityDoc);
+        //   console.log(`Migrated document with SKU: ${mongoDoc.sku}`);
+        // });
 
-        await Promise.all(promises);
-        await transaction.commit();
+        // await Promise.all(promises);
+        // await transaction.commit();
 
         console.log('Migration completed successfully.');
         return { success: true };
